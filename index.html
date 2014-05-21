@@ -39,6 +39,9 @@
                   作者
                 </td>
 
+                <td>
+                  封面
+                </td>
               </tr>
 
               <tbody id="list"></tbody>
@@ -79,6 +82,21 @@
 
                   <tr>
                     <td>
+                      封面
+                    </td>
+                    <td>
+                     <div id="container">
+                     <input type="hidden" id="coverurl" />
+                <a class="btn btn-default btn-lg " id="cover" href="#" >
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <sapn>选择文件</sapn>
+                </a>
+            </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
                       <input type="button" value="提交" onclick="dopost();" />
                     </td>
                     <tr>
@@ -97,8 +115,15 @@
               <!-- Include all compiled plugins (below), or include individual files as needed -->
               <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
               <script src="js/av-mini.js"></script>
-              <script src="js/hep.js"></script>
+              <script src="js/qiniu.js"></script>
 
+
+<script type="text/javascript" src="js/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="js/plupload/i18n/zh_CN.js"></script>
+<script type="text/javascript" src="js/ui.js"></script>
+
+<script src="js/hep.js"></script>
+              
               <script type="text/javascript">
 
                 function showForm(){
@@ -119,9 +144,13 @@
                  book.set("title",$("#title").val());
                  book.set("wuliao",$("#wuliao").val());
                  book.set("author",$("#author").val());
+                 book.set("cover",$("#coverurl").val());
                  book.save(); 
                 $("#addform").hide();
                }
+
+
+
              </script>
              <body>
               </html>
