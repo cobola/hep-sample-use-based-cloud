@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 101 Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+      </head>
+      <body>
+        <div class="row">
+          <div class="container">
+            <h1 class="text-center">Hello, 高教社!</h1>
+
+            <div style="margin:1em;">
+              <div class="btn-group">
+                <a href="javascript:showList();" class="btn btn-info">图书列表</a>
+                <a href="javascript:showForm();" class="btn btn-info">图书添加</a>
+              </div>
+            </div>
+
+
+            <table class="table table-bordered" id="tablelist">
+              <tr>
+                <td>
+                  标题
+                </td>
+                <td>
+                  物料号
+                </td>
+
+                <td>
+                  作者
+                </td>
+
+              </tr>
+
+              <tbody id="list"></tbody>
+            </table>
+
+            <div id="addform" style="display:none;">
+
+              <form action=""  method="post" class="form">
+
+                <table class="table table-borderd">
+
+                  <tr>
+                    <td>
+                      标题
+                    </td>
+                    <td>
+                      <input type="text" id="title">
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      物料
+                    </td>
+                    <td>
+                      <input type="text" id="wuliao">
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      作者
+                    </td>
+                    <td>
+                      <input type="text" id="author">
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="button" value="提交" onclick="dopost();" />
+                    </td>
+                    <tr>
+
+                    </table>
+                  </form>
+                </div>
+
+              </div>
+
+
+
+
+              <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+              <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+              <!-- Include all compiled plugins (below), or include individual files as needed -->
+              <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+              <script src="js/av-mini.js"></script>
+              <script src="js/hep.js"></script>
+
+              <script type="text/javascript">
+
+                function showForm(){
+                  $("#tablelist").hide();
+                  $("#addform").show();
+                }
+
+                function showList(){
+
+                  window.location.reload();
+                }
+                function dopost(){
+
+              var Book = AV.Object.extend("Book");
+
+
+                 var book = new Book();
+                 book.set("title",$("#title").val());
+                 book.set("wuliao",$("#wuliao").val());
+                 book.set("author",$("#author").val());
+                 book.save(); 
+                $("#addform").hide();
+               }
+             </script>
+             <body>
+              </html>
